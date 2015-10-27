@@ -1,10 +1,10 @@
 var express = require('express');
+var imlog = require('../util').imlog;
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log('kobe');
-  res.render('index', { title: 'Express4' });
+  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
