@@ -7,17 +7,29 @@ log4js.configure({
         },
         {
             type: "dateFile",
-            filename : "/home/90ping/log/im/",
+            filename : "/home/90ping/log/im/access",
             maxLogSize: 10240000,
-            category: "record",
+            category: "access",
             absolute: true,
-            pattern: "yyyyMMdd.log",
+            pattern: ".yyyyMMdd.log",
+            alwaysIncludePattern: true
+        },
+        {
+            type: "dateFile",
+            filename : "/home/90ping/log/im/error",
+            maxLogSize: 10240000,
+            category: "error",
+            absolute: true,
+            pattern: ".yyyyMMdd.log",
             alwaysIncludePattern: true
         }
-
     ],
     replaceConsole: true,
-    levels: { "record": "INFO"}
+    levels: { 
+        "access": "INFO",
+        "error": "WARN"
+    }
 });
 
-module.exports = log4js.getLogger('record');
+exports.alogger = log4js.getLogger('access');
+exports.elogger = log4js.getLogger('error');
