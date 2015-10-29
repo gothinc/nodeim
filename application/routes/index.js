@@ -5,6 +5,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
+  //imlog.alogger.info('shit');
+  console.log('fuck');
 });
 
 module.exports = router;
